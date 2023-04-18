@@ -48,9 +48,9 @@ cd base
 mkdir build
 cd build
 
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=../ci/"$ARCH"-w64-mingw32.cmake
+cmake .. -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_TOOLCHAIN_FILE=../ci/"$ARCH"-w64-mingw32.cmake
 
-make preinstall -j"$NPROC"
+ninja
 
 cpack -G ZIP
 
