@@ -68,15 +68,15 @@ else
 fi
 
 # we do not need any prefix in our zip archive, so we just write /
-"$CMAKE" .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/
+"$CMAKE" .. -GNinja -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/
 
-make preinstall -j"$procs"
+ninja
 
 # this is the name of the directory we will "install" to, as well as the created zip file's name
 DESTDIR=blue-nebula-"$(git describe --tags)"-macos-"$ARCH"
 
 # install everything into a temporary FHS-style tree which we will later zip manually after having collected the deps
-make install DESTDIR="$DESTDIR" &>install.log
+ninja install DESTDIR="$DESTDIR" &>install.log
 
 # now, we can use macdylibbundler to collect the deps
 # NOTE: THIS STEP DOES ONLY WORK ON MACOS PROPERLY

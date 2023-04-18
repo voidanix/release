@@ -43,9 +43,9 @@ cd base
 mkdir build
 cd build
 
-cmake .. -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/usr
+cmake .. -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_INSTALL_PREFIX=/usr
 
-make -j"$NPROC"
+ninja
 
 make install DESTDIR=AppDir &>install.log
 
