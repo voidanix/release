@@ -41,7 +41,7 @@ OLD_CWD="$(readlink -f .)"
 
 pushd "$BUILD_DIR"
 
-git clone --recursive https://github.com/blue-nebula/base.git
+git clone --recursive --shallow-submodules --depth 1 https://github.com/blue-nebula/base.git
 
 cd base
 
