@@ -32,7 +32,7 @@ jobs:
           - name: macOS zipball
             arch: x86_64
             runs_on: macos-10.15
-            brew_deps: coreutils sdl2 sdl2_image sdl2_mixer glew
+            brew_deps: coreutils sdl2 sdl2_image sdl2_mixer glew dylibbundler
             build_script: mac/build-archive.sh
             upload_pattern: blue*.zip
 

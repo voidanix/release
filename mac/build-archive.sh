@@ -37,18 +37,6 @@ OLD_CWD="$(realpath .)"
 
 pushd "$BUILD_DIR"
 
-# first, we need to build macdylibbundler
-git clone https://github.com/auriamg/macdylibbundler
-pushd macdylibbundler
-
-make -j7
-
-# it just creates the binary here, so let's just add it to $PATH to be able to access it conveniently
-PATH="$(realpath .):$PATH"
-export PATH
-
-popd
-
 # now let's build the binaries and install them into the usual FHS-style directory tree
 git clone --recursive --shallow-submodules --depth 1 https://github.com/blue-nebula/base.git
 
