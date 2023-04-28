@@ -38,7 +38,7 @@ OLD_CWD="$(realpath .)"
 pushd "$BUILD_DIR"
 
 # now let's build the binaries and install them into the usual FHS-style directory tree
-git clone --recursive --shallow-submodules --depth 1 https://github.com/blue-nebula/base.git
+git clone --recursive --shallow-submodules https://github.com/blue-nebula/base.git
 
 cd base
 

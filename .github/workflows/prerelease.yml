@@ -11,7 +11,7 @@ jobs:
           - name: AppImage
             arch: x86_64
             runs_on: ubuntu-20.04
-            apt_deps: libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev zlib1g-dev
+            apt_deps: libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev zlib1g-dev ninja-build
             build_script: nix/build-appimage.sh
             upload_pattern: Blue_Nebula*.AppImage*
 
@@ -25,14 +25,14 @@ jobs:
           - name: Windows installer (cross build)
             arch: x86_64
             runs_on: ubuntu-latest
-            apt_deps: mingw-w64 g++-mingw-w64 nsis
+            apt_deps: mingw-w64 g++-mingw-w64 nsis ninja-build
             build_script: win/build-installer.sh
             upload_pattern: blue*win64.exe
 
           - name: macOS zipball
             arch: x86_64
             runs_on: macos-10.15
-            brew_deps: coreutils sdl2 sdl2_image sdl2_mixer glew dylibbundler
+            brew_deps: coreutils sdl2 sdl2_image sdl2_mixer glew dylibbundler ninja
             build_script: mac/build-archive.sh
             upload_pattern: blue*.zip
 

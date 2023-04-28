@@ -43,11 +43,9 @@ cd base
 mkdir build
 cd build
 
-cmake .. -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_INSTALL_PREFIX=/usr
+cmake .. -DCMAKE_BUILD_TYPE=Release -GNinja -DCMAKE_INSTALL_PREFIX=AppDir/usr
 
-ninja
-
-make install DESTDIR=AppDir &>install.log
+ninja install &>install.log
 
 wget https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-"$ARCH".AppImage
 
