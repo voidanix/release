@@ -18,7 +18,7 @@ jobs:
           - name: Windows zipball (cross build)
             arch: x86_64
             runs_on: ubuntu-latest
-            apt_deps: mingw-w64 g++-mingw-w64
+            apt_deps: mingw-w64 g++-mingw-w64 ninja-build
             build_script: win/build-archive.sh
             upload_pattern: blue*.zip
 
